@@ -26,21 +26,10 @@ class AgendaHeroes:
 
   def search(self, key):
     index = self.hash_function(key)
-    originalIndex = index
-
-    while self.table[index] is not None:
-      if self.table[index] == key:
-        return self.table[index]
-      #Caso essa posição possua um item do tipo array
-      #procure dentro desse array o objeto
-      if type(self.table[index]) == list:
-        return self.__findInColision(key, index)
-      index += 1
-      if index == self.size:
-        index = 0
-      if index == originalIndex:
-        return None
-
+    if self.table[index] == key:
+      return self.table[index]
+    if type(self.table[index]) == list:
+      return self.__findInColision(key, index)
     return None
   
   def __findInColision(self, key, index):
@@ -56,9 +45,12 @@ hash_table.insert("aa")
 hash_table.insert("b")
 hash_table.insert("z")
 hash_table.insert("z2")
+hash_table.insert("zzzz")
+hash_table.insert("z1")
 print(hash_table.table)
 
 print(hash_table.search("aa"))
 print(hash_table.search("b"))
 print(hash_table.search("z"))
 print(hash_table.search("z2"))
+print(hash_table.search("eu nao existo"))
