@@ -20,6 +20,7 @@ class AgendaHeroes:
       else:
         array: list = self.table[index]   
         array.append(key)
+        array.sort()
     
     self.totalItems += 1
     return True
