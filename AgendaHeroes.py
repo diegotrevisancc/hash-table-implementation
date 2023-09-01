@@ -47,3 +47,8 @@ class AgendaHeroes:
     else:
       listColision: list = self.table[index]
       listColision.remove(key)
+  
+  def findByFirstChar(self, char):
+    index = self.hash_function(char)
+    if (self.table[index] != None):
+        return self.table[index]
