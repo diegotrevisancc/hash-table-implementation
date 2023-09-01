@@ -6,7 +6,6 @@ class AgendaHeroes:
 
   def hash_function(self, key):
     indexFirstChar = int(((ord(key[0].lower()) / 98) - 1) * 100) + 1
-    print(indexFirstChar)
     print("index: {} - value: {}".format(indexFirstChar, key))
     return indexFirstChar
 
@@ -15,12 +14,13 @@ class AgendaHeroes:
     if self.table[index] is None:
       self.table[index] = key
     else:
-      while self.table[index] is not None:
-        index += 1
-        if index == self.size:
-          index = 0
-      self.table[index] = key
-
+      if type(self.table[index] != list):
+        existingItem = self.table[index]
+        self.table[index] = [existingItem, key]
+      else:
+        array: list = self.table[index]   
+        array.append(key)
+    
     self.totalItems += 1
     return True
 
@@ -38,12 +38,16 @@ class AgendaHeroes:
         return None
 
     return None
+  
+  #escrever o remover
+
 
 
 hash_table = AgendaHeroes()
 hash_table.insert("aa")
 hash_table.insert("b")
 hash_table.insert("z")
+hash_table.insert("z2")
 print(hash_table.table)
 
 print(hash_table.search("aa"))
