@@ -6,7 +6,7 @@ class AgendaHeroes:
 
   def hash_function(self, key):
     indexFirstChar = int(((ord(key[0].lower()) / 98) - 1) * 100) + 1
-    # print("index: {} - value: {}".format(indexFirstChar, key))
+    print("index: {} - value: {}".format(indexFirstChar, key))
     return indexFirstChar
 
   def insert(self, key):
@@ -47,24 +47,3 @@ class AgendaHeroes:
     else:
       listColision: list = self.table[index]
       listColision.remove(key)
-
-
-hash_table = AgendaHeroes()
-hash_table.insert("aa")
-hash_table.insert("b")
-hash_table.insert("z")
-hash_table.insert("z2")
-hash_table.insert("zzzz")
-hash_table.insert("z1")
-print(hash_table.table)
-
-print(hash_table.search("aa"))
-print(hash_table.search("b"))
-print(hash_table.search("z"))
-print(hash_table.search("z2"))
-print(hash_table.search("eu nao existo"))
-
-hash_table.removeItem("z2")
-hash_table.removeItem("z")
-hash_table.removeItem("b")
-print(hash_table.table)
