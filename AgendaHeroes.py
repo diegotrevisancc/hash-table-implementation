@@ -39,6 +39,14 @@ class AgendaHeroes:
       if item == key:
         return key
     return None
+  
+  def removeItem(self, key):
+    index = self.hash_function(key)
+    if (type(self.table[index]) != list):
+      self.table[index] = None
+    else:
+      listColision: list = self.table[index]
+      listColision.remove(key)
 
 
 hash_table = AgendaHeroes()
@@ -55,3 +63,8 @@ print(hash_table.search("b"))
 print(hash_table.search("z"))
 print(hash_table.search("z2"))
 print(hash_table.search("eu nao existo"))
+
+hash_table.removeItem("z2")
+hash_table.removeItem("z")
+hash_table.removeItem("b")
+print(hash_table.table)
