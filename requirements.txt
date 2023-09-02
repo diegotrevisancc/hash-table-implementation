@@ -1,1 +1,2 @@
-pandas==1.3.3
+Pandas
+pandas==2.1.0
