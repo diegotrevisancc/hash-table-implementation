@@ -1,4 +1,4 @@
-class AgendaHeroes:
+class HeroAgenda:
   def __init__(self):
     self.size = 26
     self.table = [None] * self.size
@@ -6,7 +6,7 @@ class AgendaHeroes:
 
   def hash_function(self, key):
     indexFirstChar = int(((ord(key[0].lower()) / 98) - 1) * 100) + 1
-    print("index: {} - value: {}".format(indexFirstChar, key))
+    # print("index: {} - value: {}".format(indexFirstChar, key))
     return indexFirstChar
 
   def insert(self, key):
